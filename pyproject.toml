@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "pricewatch"
+version = "1.0.0"
+description = "CLI price monitoring tool with web scraping, SQLite storage, and Rich terminal output"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Matt"}]
+dependencies = [
+    "typer>=0.9.0",
+    "httpx>=0.25.0",
+    "beautifulsoup4>=4.12.0",
+    "rich>=13.0.0",
+    "lxml>=4.9.0",
+]
+
+[project.scripts]
+pricewatch = "pricewatch.cli:app"
+
+[tool.setuptools.packages.find]
+include = ["pricewatch*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-v --tb=short"
